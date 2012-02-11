@@ -1,6 +1,6 @@
 = brant
 
-Description goes here.
+Simple package migration management inspired from rails database migration management.
 
 == Contributing to brant
  
@@ -14,6 +14,6 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2012 Siddharth Batra. See LICENSE.txt for
+Copyright (c) 2012 Denwen, Inc. See LICENSE.txt for
 further details.
 

@@ -2,6 +2,8 @@
 
 require 'rubygems'
 require 'bundler'
+require 'lib/brant.rb'
+
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -13,15 +15,14 @@ require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "brant"
-  gem.homepage = "http://github.com/sidbatra/brant"
+  gem.homepage = "http://github.com/denwen/brant"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Simple package migrations by brant}
+  gem.description = %Q{Simple package migration management inspired from rails database migration management}
   gem.email = "siddharthabatra@gmail.com"
   gem.authors = ["Siddharth Batra"]
-  # dependencies defined in Gemfile
+  gem.files = Dir['lib/**/*.rb']
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -51,3 +52,4 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+

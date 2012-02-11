@@ -2,7 +2,6 @@
 
 require 'rubygems'
 require 'bundler'
-require 'lib/brant.rb'
 
 begin
   Bundler.setup(:default, :development)

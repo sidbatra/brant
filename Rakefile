@@ -21,7 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{Simple package migration management inspired from rails database migration management}
   gem.email = "siddharthabatra@gmail.com"
   gem.authors = ["Siddharth Batra"]
-  gem.files = Dir['lib/**/*.rb']
+  gem.files = Dir['lib/**/*.rb','generators/**/*.rb']
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -51,4 +51,7 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+require 'lib/brant/tasks'
+
 

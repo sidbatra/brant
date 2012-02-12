@@ -1,21 +1,20 @@
 require 'fileutils'
-require 'lib/brant/migration'
 
 namespace :brant do
 
 desc "Create dir to hold migrations and hidden file for current migration"
 task :init do
   
-  unless File.exists? Brant::Migration.rootPath
-    Dir.mkdir(Brant::Migration.rootPath)
+  unless File.exists? Brant.rootPath
+    Dir.mkdir(Brant.rootPath)
   end
 
-  unless File.exists? Brant::Migration.migrationsPath
-    Dir.mkdir(Brant::Migration.migrationsPath)
+  unless File.exists? Brant.migrationsPath
+    Dir.mkdir(Brant.migrationsPath)
   end
 
-  unless File.exists? Brant::Migration.migrationsConfigPath
-    FileUtils.touch(Brant::Migration.migrationsConfigPath)
+  unless File.exists? Brant.migrationsConfigPath
+    FileUtils.touch(Brant.migrationsConfigPath)
   end
 end
 

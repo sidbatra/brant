@@ -52,6 +52,4 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
-require 'lib/brant/tasks'
-
 

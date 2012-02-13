@@ -9,19 +9,13 @@ task :migrate do
 
   Brant::MigrationFile.all.values.sort.each do |migration|
 
-    puts "Migrating to " + migration.klass + " - " + migration.timestamp
-
     unless existing_migrations[migration.timestamp]
-      begin
-        puts "Running migration " + migration.klass
+      puts "Running migration " + migration.klass
 
-        require File.join(Brant.migrationsPath,migration.filename)
-        Object.const_get(migration.klass).send(:up) 
+      require File.join(Brant.migrationsPath,migration.filename)
+      Object.const_get(migration.klass).send(:up) 
 
-        existing_migrations[migration.timestamp] = true
-      rescue
-        puts "Failed to execute migration " + migration.klass
-      end
+      existing_migrations[migration.timestamp] = true
     end
   end
 
@@ -40,14 +34,10 @@ task :rollback do
 
     puts "Rolling back migration " + migration.klass
 
-    begin
-      require File.join(Brant.migrationsPath,migration.filename)
-      Object.const_get(migration.klass).send(:down) 
+    require File.join(Brant.migrationsPath,migration.filename)
+    Object.const_get(migration.klass).send(:down) 
 
-      existing_migrations.delete(migration.timestamp)
-    rescue
-      puts "Failed to rollback migration " + migration.klass
-    end
+    existing_migrations.delete(migration.timestamp)
   end
 
   Brant::MigrationFile.update(existing_migrations.keys.sort)

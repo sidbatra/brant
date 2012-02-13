@@ -6,12 +6,12 @@ module Brant
 
     # Stub method for running a migration
     #
-    def up
+    def self.up
     end
 
     # Stud method for rolling back a migration
     #
-    def down
+    def self.down
     end
   end
 

@@ -1,5 +1,9 @@
-require 'brant/migration'
 require 'active_support/core_ext/string/inflections.rb'
+require 'fileutils'
+
+require 'brant/migration'
+require 'brant/migration_file'
+
 
 module Brant
 

@@ -1,7 +1,7 @@
 class <%=class_name%> < Brant::Migration
-  def up
+  def self.up
   end
 
-  def down
+  def self.down
   end
 end

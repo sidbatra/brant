@@ -14,7 +14,7 @@ In config/environment.rb add -
 gem.config('brant')
 </pre>
 
-In the Rake add - 
+In the Rakefile add - 
 
 <pre>
 require 'brant'

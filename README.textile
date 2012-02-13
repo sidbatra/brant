@@ -4,34 +4,34 @@ Simple package migration management inspired from rails database migration manag
 
 h2. Installation
 
-<pre><code>
+<pre>
 gem install brant
-</code></pre>
+</pre>
 
 In config/environment.rb add -
 
-<pre><code>
+<pre>
 gem.config('brant')
-</code></pre>
+</pre>
 
 In the Rake add - 
 
-<pre><code>
+<pre>
 require 'brant'
 require 'brant/tasks'
-</code></pre>
+</pre>
 
 h2. Usage
 
 h3. Create a new migration
 
-<pre><code>
+<pre>
 script/generate brant_migration install_xml_package
-</code></pre>
+</pre>
 
 h3. Setup a new migration
 
-<pre><code>
+<pre>
 class InstallXmlPackage < Brant::Migration
   def self.up
     system("sudo apt-get install xml2")
@@ -41,11 +41,11 @@ class InstallXmlPackage < Brant::Migration
     system("sudo apt-get remove xml2")
   end
 end
-</code></pre>
+</pre>
 
 h3. Load rails environment for custom tasks (optional)
 
-<pre><code>
+<pre>
 require 'config/environment'
 
 class ProcessImages < Brant::Migration
@@ -57,20 +57,20 @@ class ProcessImages < Brant::Migration
     Image.last.mark_as_unprocessed
   end
 end
-</code></pre>
+</pre>
 
 h3. Run pending migrations
 
-<pre><code>
+<pre>
 rake brant:migrate
-</code></pre>
+</pre>
 
 
 h3. Rollback last migration
 
-<pre><code>
+<pre>
 rake brant:rollback
-</code></pre>
+</pre>
 
 h2. Contributing to brant
  

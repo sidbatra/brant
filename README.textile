@@ -1,0 +1,89 @@
+h1. brant
+
+Simple package migration management inspired from rails database migration management.
+
+h2. Installation
+
+<pre><code>
+gem install brant
+</code></pre>
+
+In config/environment.rb add -
+
+<pre><code>
+gem.config('brant')
+</code></pre>
+
+In the Rake add - 
+
+<pre><code>
+require 'brant'
+require 'brant/tasks'
+</code></pre>
+
+h2. Usage
+
+h3. Create a new migration
+
+<pre><code>
+script/generate brant_migration install_xml_package
+</code></pre>
+
+h3. Setup a new migration
+
+<pre><code>
+class InstallXmlPackage < Brant::Migration
+  def self.up
+    system("sudo apt-get install xml2")
+  end
+
+  def self.down
+    system("sudo apt-get remove xml2")
+  end
+end
+</code></pre>
+
+h3. Load rails environment for custom tasks (optional)
+
+<pre><code>
+require 'config/environment'
+
+class ProcessImages < Brant::Migration
+  def self.up
+    Image.last.process
+  end
+
+  def self.down
+    Image.last.mark_as_unprocessed
+  end
+end
+</code></pre>
+
+h3. Run pending migrations
+
+<pre><code>
+rake brant:migrate
+</code></pre>
+
+
+h3. Rollback last migration
+
+<pre><code>
+rake brant:rollback
+</code></pre>
+
+h2. Contributing to brant
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
+* Fork the project.
+* Start a feature/bugfix branch.
+* Commit and push until you are happy with your contribution.
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+h2. Copyright
+
+Copyright (c) 2012 Denwen, Inc. See LICENSE.txt for
+further details.
+

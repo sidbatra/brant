@@ -29,7 +29,7 @@ class BrantMigrationGenerator < Rails::Generator::Base
   #
   def file_name
     @file ||= @name + '_' + 
-                Time.now.strftime("%Y%m%M%S") + ("%04d" % rand(1000)) +
+                Time.now.strftime("%Y%m%d%M%S") + ("%02d" % rand(100)) +
                 '.rb'
   end
 
